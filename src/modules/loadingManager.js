@@ -7,6 +7,9 @@ export function createLoadingManager() {
     const progressBarWrap = document.querySelector('.progress-bar-wrap')
     const progressBar = document.getElementById('progress-bar')
 
+    const isLoaded = () => progressBarWrap.classList.contains('loaded')
+
+
     loadingManager.onStart = function (url, item, total) {
         console.log(`Started loading ${url}`)
     }
@@ -15,9 +18,14 @@ export function createLoadingManager() {
         progressBar.value = (loaded / total) * 100    
     }
 
-    loadingManager.onLoad = function () {
-        console.log('remove')
-        progressBarWrap.style.display = 'none'
+    loadingManager.onLoad = function () { 
+        progressBarWrap.classList.add('loaded')
+
+        progressBar.style.display = "none"
+
+        setTimeout(() => {
+            progressBarWrap.parentNode.removeChild(progressBarWrap);
+        }, 4000);           
     }
 
     loadingManager.onError = function (url) {

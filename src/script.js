@@ -22,10 +22,11 @@ import { createFloor } from './modules/floor.js'
 ///////////////////////////////////////
 /// Set basic parameters
 const setupParams = {
+    showLights: true,
     modelPath: '/models/gltf/truck.gltf',
     showModel: true,
     envTexture: 'models/textures/empty_warehouse_01_4k.hdr',
-    showEnv: false,
+    showEnvBG: true,
     showFloor: true,
     showPlaceholder: false,
     cameraFOV: 50,
@@ -54,7 +55,11 @@ const camera = createCamera(setupParams.cameraFOV, sizes, scene)
 
 ///////////////////////////////////////
 /// Create 2 basic lights
-const { ambientLight, directionalLight } = createLights(scene);
+
+if (setupParams.showLights == true) { 
+
+    const { ambientLight, directionalLight } = createLights(scene)
+}
 
 ///////////////////////////////////////
 /// Create renderer
@@ -66,11 +71,7 @@ const resize = createResizeHandler(camera, sizes, renderer)
 
 ///////////////////////////////////////
 /// Create HDRI evnironmnet
-
-if (setupParams.showEnv == true) {
-
-    const environment = createEnvironment(setupParams.envTexture, scene, renderer, loadingManager)
-}
+const environment = createEnvironment(setupParams.envTexture, scene, renderer, loadingManager, setupParams.showEnvBG)
 
 ///////////////////////////////////////
 /// Load orbit controls
@@ -95,7 +96,7 @@ if (setupParams.showFloor == true) {
 
 ///////////////////////////////////////
 /// Load basic debug GUI
-const debugScene = debug(camera, ambientLight, directionalLight, scene)
+//const debugScene = debug(camera, ambientLight, directionalLight, scene)
 
 ///////////////////////////////////////
 /// Animate render

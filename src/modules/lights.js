@@ -19,7 +19,5 @@ export function createLights(scene) {
 
   scene.add(ambientLight, directionalLight)
 
-  console.log ('Lights created')
-
   return { ambientLight, directionalLight }
 }

@@ -1,0 +1,53 @@
+* {
+    margin: 0!important;
+    padding: 0!important;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow: hidden;
+    color:#fff;
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+.progress-bar-wrap {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,1);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center
+}
+    
+#progress-bar {
+    width:300px;
+    margin-top:20px;
+    height:10px;
+}
+
+progress {
+    accent-color: purple;
+    border:none;
+}
+
+progress::-webkit-progress-bar {
+    border-radius:100px;
+}
+
+progress::-webkit-progress-value{
+    color: red;
+    color: greenyellow;
+    border-radius:100px;
+}

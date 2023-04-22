@@ -1,0 +1,19 @@
+{
+  "name": "3D Boilerplate",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.0.4"
+  },
+  "dependencies": {
+    "camera-controls": "^2.3.4",
+    "gsap": "^3.11.5",
+    "lil-gui": "^0.17.0",
+    "three": "^0.148.0"
+  }
+}

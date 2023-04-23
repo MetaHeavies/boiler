@@ -1,6 +1,6 @@
 * {
-    margin: 0!important;
-    padding: 0!important;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -8,6 +8,7 @@ html,
 body {
     overflow: hidden;
     color:#fff;
+    font-family: arial;
 }
 
 .webgl {
@@ -24,7 +25,7 @@ body {
     transform: translate(-50%, -50%);
     width:100%;
     height:100%;
-    background-color:rgba(0,0,0,1);
+    background-color:rgba(255,255,255,1);
     display:flex;
     opacity:1;
     flex-direction: column;
@@ -35,25 +36,35 @@ body {
 }
     
 #progress-bar {
-    width:300px;
-    margin-top:20px;
-    height:10px;
+    width:250px;
+    height:4px;
+    border-radius: 100px;;
+}
+
+.loading-message {
+    margin-top:16px;
+    color:#ccc;
+    font-size:12px;
+    text-align: center;
 }
 
 progress {
-    accent-color: purple;
-    border:none;
-}
-
-progress::-webkit-progress-bar {
-    border-radius:100px;
-}
-
-progress::-webkit-progress-value{
-    color: red;
-    color: greenyellow;
-    border-radius:100px;
-}
+    border: none;
+    border-radius: 100px;
+  }
+  
+  progress::-moz-progress-bar {
+    background: lightblue;
+  }
+  
+  progress::-webkit-progress-value {
+    background: #000;
+  }
+  
+  progress::-webkit-progress-bar {
+    background: #ccc;
+    border-radius: 100px;
+  }
 
 .loaded {
     opacity:0;

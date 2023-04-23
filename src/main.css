@@ -7,7 +7,7 @@
 html,
 body {
     overflow: hidden;
-    color:#fff;
+    color:#000;
     font-family: arial;
 }
 
@@ -31,20 +31,28 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    transition:opacity 4s ease-in-out;
+    transition:opacity 2.5s ease-in-out;
     z-index: 100;
 }
     
 #progress-bar {
     width:250px;
-    height:4px;
-    border-radius: 100px;;
+    height:32px;
+    width:100%;
+    position:absolute;
+    bottom:0;
 }
 
 .loading-message {
     margin-top:16px;
-    color:#ccc;
+    color:#7b7b7b;
     font-size:12px;
+    text-align: center;
+}
+
+.percent-loaded {
+    font-weight: bold;
+    font-size: 64px;
     text-align: center;
 }
 
@@ -63,7 +71,6 @@ progress {
   
   progress::-webkit-progress-bar {
     background: #ccc;
-    border-radius: 100px;
   }
 
 .loaded {

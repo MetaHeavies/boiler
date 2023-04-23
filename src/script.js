@@ -23,11 +23,12 @@ import { createFloor } from './modules/floor.js'
 /// Set basic parameters
 const setupParams = {
     showLights: true,
-    modelPath: '/models/gltf/truck.gltf',
+    overlayTexture: false,
+    modelPath: '/models/gltf/model.glb',
     showModel: true,
-    envTexture: 'models/textures/empty_warehouse_01_4k.hdr',
-    showEnvBG: true,
-    showFloor: true,
+    envTexture: '/models/textures/empty_warehouse_01_4k.hdr',
+    showEnvBG: false,
+    showFloor: false,
     showPlaceholder: false,
     cameraFOV: 50,
 }
@@ -56,10 +57,10 @@ const camera = createCamera(setupParams.cameraFOV, sizes, scene)
 ///////////////////////////////////////
 /// Create 2 basic lights
 
-if (setupParams.showLights == true) { 
+// if (setupParams.showLights == true) { 
 
     const { ambientLight, directionalLight } = createLights(scene)
-}
+// }
 
 ///////////////////////////////////////
 /// Create renderer
@@ -81,7 +82,8 @@ const controls = new createOrbitControls(camera, renderer.domElement)
 /// Load model or placeholder geometry
 if (setupParams.showModel == true) {
 
-    let model = new loadModels(setupParams.modelPath, scene, loadingManager)
+    const model = new loadModels(setupParams.modelPath, scene, loadingManager, setupParams.overlayTexture)
+    console.log(model)
 }
 
 if (setupParams.showPlaceholder == true) {
@@ -96,7 +98,7 @@ if (setupParams.showFloor == true) {
 
 ///////////////////////////////////////
 /// Load basic debug GUI
-//const debugScene = debug(camera, ambientLight, directionalLight, scene)
+const debugScene = debug(camera, ambientLight, directionalLight, scene)
 
 ///////////////////////////////////////
 /// Animate render

@@ -81,7 +81,7 @@ const controls = new createOrbitControls(camera, renderer.domElement)
 /// Load model or placeholder geometry
 if (setupParams.showModel == true) {
 
-    const model = new loadModels(setupParams.modelPath, scene, loadingManager)
+    let model = new loadModels(setupParams.modelPath, scene, loadingManager)
 }
 
 if (setupParams.showPlaceholder == true) {

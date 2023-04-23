@@ -10,8 +10,6 @@ export function loadModels(modelPath, scene, loadingManager) {
     dracoLoader.setDecoderConfig({ type: 'js' })
     loader.setDRACOLoader(dracoLoader)
 
-    const model = ''
-
     const material = new THREE.MeshPhysicalMaterial({})
     material.reflectivity = 1
     material.transmission = 0
@@ -23,7 +21,7 @@ export function loadModels(modelPath, scene, loadingManager) {
     material.ior = 1.2
     material.thickness = 10.0
 
-    loader.load(modelPath, function (model) {
+    const model = loader.load(modelPath, function (model) {
 
         model.scene.traverse((o) => {
     
